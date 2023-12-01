@@ -1,53 +1,24 @@
-
-
 # cvml-sanity
 
-```
-python3 paper_daemon.py
-python3 compute.py
-export FLASK_APP=serve.py; flask run
-```
+cvml-sanity is a paper search engine for major computer vision, machine learning, and robotics venues. The code is repurposed from arxiv-sanity-lite (https://github.com/karpathy/arxiv-sanity-lite).
 
-TODO: 
-- [ ] add abstracts to paperlists
-- [ ] add code links to paperlists
-- [ ] write a script to output statistics
+Currently the database contains approx. 75K papers from the following conferences:
 
+Computer vision: 
+- **CVPR** 2010 -- present
+- **ECCV** 2018 -- present
+- **ICCV** 2011 -- present
+- **ACCV** 2010 -- present
+- **BMVC** 2010 -- present
 
-# arxiv-sanity-lite
+Robotics:
+- **ICRA** 1998 -- present
+- **IROS** 2010 -- present
 
-A much lighter-weight arxiv-sanity from-scratch re-write. Periodically polls arxiv API for new papers. Then allows users to tag papers of interest, and recommends new papers for each tag based on SVMs over tfidf features of paper abstracts. Allows one to search, rank, sort, slice and dice these results in a pretty web UI. Lastly, arxiv-sanity-lite can send you daily emails with recommendations of new papers based on your tags. Curate your tags, track recent papers in your area, and don't miss out!
+Machine learning:
+- **NeurIPS** 2010 -- present
+- **ICML** 2013 -- present
 
-I am running a live version of this code on [arxiv-sanity-lite.com](https://arxiv-sanity-lite.com).
-
-![Screenshot](screenshot.jpg)
-
-#### To run
-
-To run this locally I usually run the following script to update the database with any new papers. I typically schedule this via a periodic cron job:
-
-```bash
-#!/bin/bash
-
-python3 arxiv_daemon.py --num 2000
-
-if [ $? -eq 0 ]; then
-    echo "New papers detected! Running compute.py"
-    python3 compute.py
-else
-    echo "No new papers were added, skipping feature computation"
-fi
-```
-
-You can see that updating the database is a matter of first downloading the new papers via the arxiv api using `arxiv_daemon.py`, and then running `compute.py` to compute the tfidf features of the papers. Finally to serve the flask server locally we'd run something like:
-
-```bash
-export FLASK_APP=serve.py; flask run
-```
-
-All of the database will be stored inside the `data` directory. Finally, if you'd like to run your own instance on the interwebs I recommend simply running the above on a [Linode](https://www.linode.com), e.g. I am running this code currently on the smallest "Nanode 1 GB" instance indexing about 30K papers, which costs $5/month.
-
-(Optional) Finally, if you'd like to send periodic emails to users about new papers, see the `send_emails.py` script. You'll also have to `pip install sendgrid`. I run this script in a daily cron job.
 
 #### Requirements
 
@@ -57,11 +28,25 @@ All of the database will be stored inside the `data` directory. Finally, if you'
  pip install -r requirements.txt
  ```
 
-#### Todos
 
-- Make website mobile friendly with media queries in css etc
-- The metas table should not be a sqlitedict but a proper sqlite table, for efficiency
-- Build a reverse index to support faster search, right now we iterate through the entire database
+
+### How to use
+
+To run locally:
+
+```
+./serve.sh
+```
+
+Then open http://127.0.0.1:5000/ in your browser.
+
+
+TODO: 
+- [ ] add abstracts to paperlists
+- [ ] add code links to paperlists
+- [ ] write a script to output statistics
+
+
 
 #### License
 
