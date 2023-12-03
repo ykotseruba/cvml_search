@@ -6,11 +6,11 @@ Currently the database contains approx. 77K papers from the following conference
 
 Computer vision: 
 - **CVPR** 2010 -- present
-- **ECCV** 2018 -- present
+- **ECCV** 2010 -- present
 - **ICCV** 2011 -- present
 - **ACCV** 2010 -- present
 - **BMVC** 2010 -- present
-- **WACV** 2020 -- present
+- **WACV** 2016 -- present
 
 Robotics:
 - **ICRA** 1998 -- present
@@ -20,7 +20,6 @@ Machine learning:
 - **NeurIPS** 2010 -- present
 - **ICML** 2013 -- present
 
-
 #### Requirements
 
  Install via requirements:
@@ -28,8 +27,6 @@ Machine learning:
  ```bash
  pip install -r requirements.txt
  ```
-
-
 
 ### How to use
 
@@ -44,11 +41,9 @@ Then open http://127.0.0.1:5000/ in your browser.
 
 ### TODO: 
 - [ ] filter results by year and conference
-- [ ] add ICML (2010-2012), ECCV (2010-2016) WACV (2010-2020), ICLR, AR-L
+- [ ] add ICML (2010-2012), ICLR, AR-L
 - [ ] add code links to IROS, ICRA
-- [ ] show conference stats
-
-
+- [ ] conference stats
 
 #### License
 
