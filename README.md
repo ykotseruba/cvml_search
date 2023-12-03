@@ -2,7 +2,7 @@
 
 cvml-sanity is a paper search engine for major computer vision, machine learning, and robotics venues. The code is repurposed from arxiv-sanity-lite (https://github.com/karpathy/arxiv-sanity-lite).
 
-Currently the database contains approx. 77K papers from the following conferences:
+Currently the database contains approx. 80K papers from the following conferences:
 
 Computer vision: 
 - **CVPR** 2010 -- present
