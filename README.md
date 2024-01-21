@@ -41,7 +41,7 @@ Then open http://127.0.0.1:5000/ in the browser.
 
 ### TODO: 
 - [ ] enable filtering results by year and conference
-- [ ] add ICML (2010-2012), ICLR, AR-L
+- [ ] add ICML (2010-2012), ICLR, AR-L, NeurIPS2023, CoRL 
 - [ ] add code links to IROS, ICRA
 - [ ] conference stats
 - [ ] semantic search?
