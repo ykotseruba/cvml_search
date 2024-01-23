@@ -45,6 +45,7 @@ Then open http://127.0.0.1:5000/ in the browser.
 - [ ] add code links to IROS, ICRA
 - [ ] conference stats
 - [ ] semantic search?
+- [ ] full-text search, currently only abstracts and titles are searched
 
 #### License
 
