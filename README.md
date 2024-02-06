@@ -29,6 +29,11 @@ Machine learning:
  ```
 
 ### How to use
+Before first use, run `make` to initialize the database:
+```
+make up
+```
+
 
 Run in terminal:
 
