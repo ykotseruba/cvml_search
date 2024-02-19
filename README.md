@@ -17,7 +17,7 @@ Robotics:
 - **IROS** 2010 -- 2023
 
 Machine learning:
-- **NeurIPS** 2010 -- 2022
+- **NeurIPS** 2010 -- 2023
 - **ICML** 2013 -- 2023
 
 #### Requirements
@@ -46,7 +46,7 @@ Then open http://127.0.0.1:5000/ in the browser.
 
 ### TODO: 
 - [ ] enable filtering results by year and conference
-- [ ] add ICML (2010-2012), ICLR, AR-L, NeurIPS 2023, CoRL, AAAI
+- [ ] add ICML (2010-2012), ICLR, AR-L, CoRL, AAAI
 - [ ] workshops papers? 
 - [ ] add code links to IROS, ICRA
 - [ ] show conference stats in README
