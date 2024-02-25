@@ -46,9 +46,13 @@ Then open http://127.0.0.1:5000/ in the browser.
 
 ### TODO: 
 - [ ] enable filtering results by year and conference
-- [ ] add ICML (2010-2012), ICLR, AR-L, CoRL, AAAI
+- [ ] add ICML (2010-2012)
+- [ ] add ICLR
+- [ ] add AR-L
+- [ ] add CoRL
+- [ ] add AAAI
 - [ ] workshops papers? 
-- [ ] add code links to IROS, ICRA
+- [x] add code links to IROS, ICRA
 - [ ] show conference stats in README
 - [ ] semantic search?
 - [ ] full-text search, currently only abstracts and titles are searched
