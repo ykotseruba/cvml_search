@@ -37,7 +37,7 @@ var move_page = function(int_offset) {
                 <input name="q" type="text" id="qfield" value="{{ gvars.search_query }}">
 
                 <!-- rank type: one of tags, pid, time, or random -->
-                <label for="rank_type">Filter by:</label>
+                <label for="rank_type">Filter by </label>
                 <!-- <select name="rank" id="rank_select"> -->
                     <!-- <option value="search" {{ gvars.rank == 'search' and 'selected' }}>search</option> -->
                     <!-- <option value="tags" {{ gvars.rank == 'tags' and 'selected' }}>venue</option> -->
@@ -56,7 +56,9 @@ var move_page = function(int_offset) {
 
                 <!-- current time_filter, in a text field -->
                 <label for="time_filter">year: </label>
-                <input name="time_filter" type="text" id="time_filter_field" value="{{ gvars.time_filter }}">
+                <input name="from_year" type="text" id="time_filter_field" value="{{ gvars.from_year }}">
+                <label for="time_filter">-</label>
+                <input name="to_year" type="text" id="time_filter_field" value="{{ gvars.to_year }}">
 
                 <!-- current svm_c, in a text field -->
 <!--                 <label for="svm_c">svm_c: </label>
@@ -70,8 +72,11 @@ var move_page = function(int_offset) {
                 </select> -->
 
                 <input type="submit" value="Submit">
+
+                <label for="q">Found {{ num_found }} papers</label>
             </form>
         </div>
+
         <!-- some hand-coded common choices for faster and more convenient operation -->
 <!--         <div id="cbox_fast">
             Shortcuts:
