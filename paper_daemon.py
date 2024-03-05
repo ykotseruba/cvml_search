@@ -52,18 +52,19 @@ if __name__ == '__main__':
     time_str = dt.strftime("%B %d, %Y") 
 
     for idx, row in tqdm(paperlist_df.iterrows(), desc=f'Loading {args.venue}', total=num_papers):
-        #try:
-        p = {}
-        p['_id'] = args.venue+str(row['id'])
-        p['_time'] = timestamp
-        p['_time_str'] = time_str
-        p['authors'] = [{'name': an.strip()} for an in row['authors'].split(',')]
-        p['title'] = row['title']
-        p['tags'] = [{'term': args.venue.strip()}]
-        p['link'] = row['link']
-        p['code'] = row['code']
-        p['summary'] = row['abstract']
-        store(p)
-        #except Exception:
-        #    print(p)
-        #    sys.exit(-1)
+        try:
+            p = {}
+            p['_id'] = args.venue+str(row['id'])
+            p['_time'] = timestamp
+            p['_time_str'] = time_str
+            p['authors'] = [{'name': an.strip()} for an in row['authors'].split(',')]
+            p['title'] = row['title']
+            p['tags'] = [{'term': args.venue.strip()}]
+            p['link'] = row['link']
+            p['code'] = row['code']
+            p['summary'] = row['abstract']
+            store(p)
+        except Exception as e:
+            print(e)
+            print(p)
+            sys.exit(-1)
