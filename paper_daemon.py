@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     # load papers from the venue
     num_papers = len(paperlist_df)
-    raw_date = venue_dates[venue_dates['Venue']==args.venue]['Date'].values[0].astype(str).split('T')[0]
+    raw_date = venue_dates[venue_dates['venue']==args.venue]['date'].values[0].astype(str).split('T')[0]
     dt = datetime.strptime(raw_date, '%Y-%m-%d')
     timestamp = time.mktime(dt.timetuple())
     time_str = dt.strftime("%B %d, %Y") 
