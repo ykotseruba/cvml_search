@@ -10,6 +10,7 @@ ideas:
 import os
 import re
 import time
+import datetime
 from random import shuffle
 
 import numpy as np
@@ -208,7 +209,8 @@ def main():
     # default settings
     default_rank = 'time'
     default_tags = ''
-    default_time_filter = ''
+    default_from_year = '2010'
+    default_to_year = f'{datetime.date.today().strftime("%Y")}'
     default_skip_have = 'no'
 
     # override variables with any provided options via the interface
@@ -216,7 +218,8 @@ def main():
     opt_q = request.args.get('q', '') # search request in the text box
     opt_tags = request.args.get('tags', default_tags)  # tags to rank by if opt_rank == 'tag'
     opt_pid = request.args.get('pid', '')  # pid to find nearest neighbors to
-    opt_time_filter = request.args.get('time_filter', default_time_filter) # number of days to filter by
+    opt_from_year = request.args.get('from_year', default_from_year) # start year
+    opt_to_year = request.args.get('to_year', default_to_year) # end year
     opt_skip_have = request.args.get('skip_have', default_skip_have) # hide papers we already have?
     opt_svm_c = request.args.get('svm_c', '') # svm C parameter
     opt_page_number = request.args.get('page_number', '1') # page number for pagination
@@ -247,21 +250,26 @@ def main():
     else:
         raise ValueError("opt_rank %s is not a thing" % (opt_rank, ))
 
-    # filter by time
-    if opt_time_filter:
+    num_papers_found = len(pids)
+    if  opt_from_year != default_from_year or opt_to_year != default_to_year or opt_tags != default_tags:
         mdb = get_metas()
         kv = {k:v for k,v in mdb.items()} # read all of metas to memory at once, for efficiency
-        tnow = time.time()
-        deltat = int(opt_time_filter)*60*60*24 # allowed time delta in seconds
-        keep = [i for i,pid in enumerate(pids) if (tnow - kv[pid]['_time']) < deltat]
-        pids, scores = [pids[i] for i in keep], [scores[i] for i in keep]
 
-    # optionally hide papers we already have
-    if opt_skip_have == 'yes':
-        tags = get_tags()
-        have = set().union(*tags.values())
-        keep = [i for i,pid in enumerate(pids) if pid not in have]
+    # filter by time
+    if opt_from_year != default_from_year or opt_to_year != default_to_year:
+        end = int(opt_to_year)
+        start = int(opt_from_year)
+        print(time, end, start)
+        keep = [i for i,pid in enumerate(pids) if (kv[pid]['year'] >= start and kv[pid]['year'] <= end)]
         pids, scores = [pids[i] for i in keep], [scores[i] for i in keep]
+        num_papers_found = len(pids)
+
+    # filter by venue
+    if opt_tags != default_tags:
+        venues = [x.lower().strip() for x in opt_tags.split(',')]
+        keep = [i for i,pid in enumerate(pids) if kv[pid]['venue'] in venues]
+        pids, scores = [pids[i] for i in keep], [scores[i] for i in keep]
+        num_papers_found = len(pids)
 
     # crop the number of results to RET_NUM, and paginate
     try:
@@ -289,12 +297,14 @@ def main():
     context['papers'] = papers
     context['tags'] = rtags
     context['words'] = words
+    context['num_found'] = num_papers_found
     context['words_desc'] = "Here are the top 40 most positive and bottom 20 most negative weights of the SVM. If they don't look great then try tuning the regularization strength hyperparameter of the SVM, svm_c, above. Lower C is higher regularization."
     context['gvars'] = {}
     context['gvars']['rank'] = opt_rank
     context['gvars']['tags'] = opt_tags
     context['gvars']['pid'] = opt_pid
-    context['gvars']['time_filter'] = opt_time_filter
+    context['gvars']['to_year'] = opt_to_year
+    context['gvars']['from_year'] = opt_from_year
     context['gvars']['skip_have'] = opt_skip_have
     context['gvars']['search_query'] = opt_q
     context['gvars']['svm_c'] = str(C)

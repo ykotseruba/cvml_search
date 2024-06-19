@@ -1,6 +1,6 @@
 feedparser==6.0.8
-Werkzeug==2.2.0
-Flask==2.0.2
+Werkzeug==2.3.8
+Flask==2.2.5
 numpy==1.26.2
 scikit-learn==1.0.1
 sqlitedict==1.7.0

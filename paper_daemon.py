@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     def store(p):
         pdb[p['_id']] = p
-        mdb[p['_id']] = {'_time': p['_time']}
+        mdb[p['_id']] = {'_time': p['_time'], 'year': int(p['_time_str'].split(',')[1]), 'venue': p['tags'][0]['term'][:-4].lower()}
 
     paperlist_path = os.path.join(data_path, 'paperlists_v2', f'{args.venue}.xlsx')
     if os.path.exists(paperlist_path):
@@ -46,24 +46,25 @@ if __name__ == '__main__':
 
     # load papers from the venue
     num_papers = len(paperlist_df)
-    raw_date = venue_dates[venue_dates['Venue']==args.venue]['Date'].values[0].astype(str).split('T')[0]
+    raw_date = venue_dates[venue_dates['venue']==args.venue]['date'].values[0].astype(str).split('T')[0]
     dt = datetime.strptime(raw_date, '%Y-%m-%d')
     timestamp = time.mktime(dt.timetuple())
     time_str = dt.strftime("%B %d, %Y") 
 
     for idx, row in tqdm(paperlist_df.iterrows(), desc=f'Loading {args.venue}', total=num_papers):
-        #try:
-        p = {}
-        p['_id'] = row['id']
-        p['_time'] = timestamp
-        p['_time_str'] = time_str
-        p['authors'] = [{'name': an.strip()} for an in row['authors'].split(',')]
-        p['title'] = row['title']
-        p['tags'] = [{'term': args.venue}]
-        p['link'] = row['link']
-        p['code'] = row['code']
-        p['summary'] = row['abstract']
-        store(p)
-        #except Exception:
-        #    print(p)
-        #    sys.exit(-1)
+        try:
+            p = {}
+            p['_id'] = args.venue+str(row['id'])
+            p['_time'] = timestamp
+            p['_time_str'] = time_str
+            p['authors'] = [{'name': an.strip()} for an in row['authors'].split(',')]
+            p['title'] = row['title']
+            p['tags'] = [{'term': args.venue.strip()}]
+            p['link'] = row['link']
+            p['code'] = row['code']
+            p['summary'] = row['abstract']
+            store(p)
+        except Exception as e:
+            print(e)
+            print(p)
+            sys.exit(-1)

@@ -39,7 +39,6 @@ const Paper = props => {
         )
     }
 
-    
 
     return (
     <div class='rel_paper'>
