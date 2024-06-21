@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 Download and install the latest `xapian-core` binary from https://xapian.org/download.
 
-Install Python bindings, e.g. `sudo apt-get install python3-xapian` or follow the instructions (here)[https://getting-started-with-xapian.readthedocs.io/en/latest/overview.html].
+Install Python bindings, e.g. `sudo apt-get install python3-xapian` or follow the instructions [here](https://getting-started-with-xapian.readthedocs.io/en/latest/overview.html).
 
 ### Setup
 Download paper database using the link below
@@ -55,7 +55,7 @@ Then open http://127.0.0.1:5000/ in the browser.
 
 ### Search
 
-Search relies on the (Xapian engine)[https://xapian.org/].
+Search relies on the [Xapian engine](https://xapian.org/).
 
 ## Queries
 
@@ -89,7 +89,7 @@ By default, 1,000 top results are returned. If a higher number is desired, chang
 - [ ] show conference stats in README
 - [ ] ~~semantic search? tried Meta FAISS but it's too slow and not very good~~
 - [x] ~~full-text search~~
-- [ ] limit search to specific fields (e.g. authors or titles)
+- [ ] add option for searching specific fields (e.g. authors or titles)
 - [ ] remove 'inspect' links
 - [ ] fix 'stats' page
 
