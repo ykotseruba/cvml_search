@@ -2,10 +2,10 @@
 
 cvml-sanity is a paper search engine for major computer vision, machine learning, and robotics venues. The code is repurposed from arxiv-sanity-lite (https://github.com/karpathy/arxiv-sanity-lite).
 
-The database includes **114,957 papers** from the following conferences:
+The database includes **117,672 papers** from the following conferences:
 
 Computer vision: 
-- **CVPR** 2010 -- 2023
+- **CVPR** 2010 -- 2024
 - **ECCV** 2010 -- 2022
 - **ICCV** 2011 -- 2023
 - **ACCV** 2010 -- 2022
@@ -35,12 +35,16 @@ AI:
  ```
 
 ### How to use
+Download paper database using the link below
+
+https://drive.google.com/file/d/1QZRczKgBq1LpD3NiMXQNtuGDDU0w6jcU/view?usp=drive_link
+
+Extract the archive into the `cvml_search` directory.
+
 Before the first use, run `make` to initialize the database:
 ```
 make up
 ```
-
-
 To start the app locally, in terminal:
 
 ```
