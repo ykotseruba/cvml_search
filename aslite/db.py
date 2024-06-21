@@ -9,6 +9,9 @@ import sqlite3, zlib, pickle, tempfile
 from sqlitedict import SqliteDict
 from contextlib import contextmanager
 
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings import SentenceTransformerEmbeddings
+
 # -----------------------------------------------------------------------------
 # global configuration
 
@@ -103,6 +106,8 @@ flag='r': open for read-only
 PAPERS_DB_FILE = os.path.join(DATA_DIR, 'papers.db')
 # stores account-relevant info, like which tags exist for which papers
 DICT_DB_FILE = os.path.join(DATA_DIR, 'dict.db')
+# vector database path
+FAISS_DB_FILE = os.path.join(DATA_DIR, 'faiss_all')
 
 def get_papers_db(flag='r', autocommit=True):
     assert flag in ['r', 'c']
