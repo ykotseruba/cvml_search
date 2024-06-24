@@ -35,6 +35,7 @@ pip install -r requirements.txt
 ```
 
 Download and install the xapian from https://xapian.org/download. The easiest option on Ubuntu is to add the PPA from https://launchpad.net/~xapian/+archive/ubuntu/backports and then install via `sudo apt-get install python3-xapian`
+(If using virtualenv, you might need to add the installed xapian to python search path. For example, creating a [`.venv/lib/python3.8/site-packages/xapian.pth` file](https://docs.python.org/3.11/library/site.html) containing directory where xapian is installed.)
 
 ### Setup
 Download paper database using the link below
