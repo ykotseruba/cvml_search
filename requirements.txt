@@ -1,9 +1,8 @@
-feedparser==5.2.1
-requests==2.22.0
-tqdm==4.65.0
-numpy==1.17.4
-Flask==1.1.2
-sqlitedict==2.1.0
-pandas==0.25.3
-scikit_learn==1.5.0
+#feedparser==5.2.1
+requests
+tqdm
+Flask>=2.2.2
+pandas
+scikit_learn
+numpy
 sendgrid==6.11.0
