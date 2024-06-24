@@ -40,7 +40,7 @@ Download and install the xapian from https://xapian.org/download. The easiest op
 ### Setup
 Download paper database using the link below
 
-https://drive.google.com/file/d/15AmumdNQo_hk2G5lCF0wNUtQnYa7B2ly/view?usp=sharing
+https://drive.google.com/file/d/1iXQzyQSq4jMpAOa2Usx5qdB-9NqPJWlm/view?usp=drive_link
 
 Extract the archive into the `cvml_search` directory. The database folder is called `xapiandb`.
 
