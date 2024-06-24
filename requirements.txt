@@ -1,7 +1,7 @@
 #feedparser==5.2.1
 requests
 tqdm
-Flask==1.1.2
+Flask>=2.2.2
 pandas
 scikit_learn
 numpy
