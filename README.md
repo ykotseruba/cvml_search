@@ -2,10 +2,10 @@
 
 cvml-sanity is a paper search engine for major computer vision, machine learning, and robotics venues. The code is repurposed from arxiv-sanity-lite (https://github.com/karpathy/arxiv-sanity-lite).
 
-The database includes **114,957 papers** from the following conferences:
+The database includes **117,672 papers** from the following conferences:
 
 Computer vision: 
-- **CVPR** 2010 -- 2023
+- **CVPR** 2010 -- 2024
 - **ECCV** 2010 -- 2022
 - **ICCV** 2011 -- 2023
 - **ACCV** 2010 -- 2022
@@ -28,20 +28,24 @@ AI:
 
 #### Requirements
 
- Install via requirements:
+Install via requirements:
 
- ```bash
- pip install -r requirements.txt
- ```
-
-### How to use
-Before the first use, run `make` to initialize the database:
-```
-make up
+```bash
+pip install -r requirements.txt
 ```
 
+Download and install the latest `xapian-core` binary from https://xapian.org/download.
 
-To start the app locally, in terminal:
+Install Python bindings, e.g. `sudo apt-get install python3-xapian` or follow the instructions [here](https://getting-started-with-xapian.readthedocs.io/en/latest/overview.html).
+
+### Setup
+Download paper database using the link below
+
+https://drive.google.com/file/d/15AmumdNQo_hk2G5lCF0wNUtQnYa7B2ly/view?usp=sharing
+
+Extract the archive into the `cvml_search` directory. The database folder is called `xapiandb`.
+
+To start the app locally, type in terminal:
 
 ```
 ./serve.sh
@@ -49,21 +53,45 @@ To start the app locally, in terminal:
 
 Then open http://127.0.0.1:5000/ in the browser.
 
+### Search
+
+Search relies on the [Xapian engine](https://xapian.org/).
+
+## Queries
+
+-- Regular text queries, e.g. 'visual attention'
+
+-- Boolean expressions, e.g. 'visual AND attention', 'visual OR attention', 'visual NOT attention'. Note: pure NOT queries are not supported, e.g. 'NOT attention' will not work
+
+-- Occurrences of terms close together, e.g. 'visual NEAR attention' will match only documents where these terms occur within a few words of one another.
+
+## Filtering results
+
+Filter by venue -- enter venue names separated by commas, e.g. cvpr,bmvc,iros. Not case sensitive.
+
+Filter by year -- enter a range of years. Papers published between these values (inclusive) will be returned.
+
+## Number of papers returned
+
+By default, 1,000 top results are returned. If a higher number is desired, change the constant `pagesize' on line 137 of `serve.py`. Note that higher numbers (e.g. 10,000) may slow down the application.
 
 ### TODO: 
-- [x] enable filtering results by year and conference
-- [x] add ICML (2010-2012)
-- [x] add ICLR (2017-2019)
-- [x] add CoRL
-- [x] add RSS
-- [x] add AAAI
-- [ ] add IJCAI?
-- [ ] add HCI?
+- [x] ~~enable filtering results by year and conference~~
+- [x] ~~add ICML (2010-2012)~~
+- [x] ~~add ICLR (2017-2019)~~
+- [x] ~~add CoRL~~
+- [x] ~~add RSS~~
+- [x] ~~add AAAI~~
+- [ ] ~~add IJCAI?~~
+- [ ] ~~add HCI?~~
 - [ ] workshops papers? 
-- [x] add code links to IROS, ICRA
+- [x] ~~add code links to IROS, ICRA~~
 - [ ] show conference stats in README
-- [ ] semantic search?
-- [ ] full-text search, currently only abstracts and titles are searched
+- [ ] ~~semantic search? tried Meta FAISS but it's too slow and not very good~~
+- [x] ~~full-text search~~
+- [ ] add option for searching specific fields (e.g. authors or titles)
+- [ ] remove 'inspect' links
+- [ ] fix 'stats' page
 
 #### License
 

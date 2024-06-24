@@ -21,7 +21,7 @@ const Paper = props => {
                         .then(response => console.log(response.text()));
     const subber = () => fetch("/sub/" + p.id + "/" + prompt("tag to subtract from this paper:"))
                         .then(response => console.log(response.text()));
-    const utags = p.utags.map((utxt, ix) => <UTag key={ix} tag={utxt} />);
+    //const utags = p.utags.map((utxt, ix) => <UTag key={ix} tag={utxt} />);
     const similar_url = "/?rank=pid&pid=" + p.id;
     const inspect_url = "/inspect?pid=" + p.id;
     const thumb_img = p.thumb_url === '' ? null : <div class='rel_img'><img src={p.thumb_url} /></div>;
@@ -29,15 +29,15 @@ const Paper = props => {
 
     // if the user is logged in then we can show add/sub buttons
     let utag_controls = null;
-    if(user) {
-        utag_controls = (
-            <div class='rel_utags'>
-                <div class="rel_utag rel_utag_add" onClick={adder}>+</div>
-                <div class="rel_utag rel_utag_sub" onClick={subber}>-</div>
-                {utags}
-            </div>
-        )
-    }
+    // if(user) {
+    //     utag_controls = (
+    //         <div class='rel_utags'>
+    //             <div class="rel_utag rel_utag_add" onClick={adder}>+</div>
+    //             <div class="rel_utag rel_utag_sub" onClick={subber}>-</div>
+    //             {utags}
+    //         </div>
+    //     )
+    //}
 
 
     return (
