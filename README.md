@@ -34,9 +34,7 @@ Install via requirements:
 pip install -r requirements.txt
 ```
 
-Download and install the latest `xapian-core` binary from https://xapian.org/download.
-
-Install Python bindings, e.g. `sudo apt-get install python3-xapian` or follow the instructions [here](https://getting-started-with-xapian.readthedocs.io/en/latest/overview.html).
+Download and install the xapian from https://xapian.org/download. The easiest option on Ubuntu is to add the PPA from https://launchpad.net/~xapian/+archive/ubuntu/backports and then install via `sudo apt-get install python3-xapian`
 
 ### Setup
 Download paper database using the link below
