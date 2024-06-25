@@ -75,19 +75,13 @@ Filter by year -- enter a range of years. Papers published between these values 
 By default, 1,000 top results are returned. If a higher number is desired, change the constant `pagesize' on line 137 of `serve.py`. Note that higher numbers (e.g. 10,000) may slow down the application.
 
 ### TODO: 
-- [x] ~~enable filtering results by year and conference~~
-- [x] ~~add ICML (2010-2012)~~
-- [x] ~~add ICLR (2017-2019)~~
-- [x] ~~add CoRL~~
-- [x] ~~add RSS~~
-- [x] ~~add AAAI~~
+- [ ] ICLR 2024
+- [ ] ICRA 2024
+- [ ] full-text search for ICRA
 - [ ] ~~add IJCAI?~~
 - [ ] ~~add HCI?~~
 - [ ] workshops papers? 
-- [x] ~~add code links to IROS, ICRA~~
 - [ ] show conference stats in README
-- [ ] ~~semantic search? tried Meta FAISS but it's too slow and not very good~~
-- [x] ~~full-text search~~
 - [ ] add option for searching specific fields (e.g. authors or titles)
 - [ ] remove 'inspect' links
 - [ ] fix 'stats' page
