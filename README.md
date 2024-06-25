@@ -70,9 +70,9 @@ Filter by venue -- enter venue names separated by commas, e.g. cvpr,bmvc,iros. N
 
 Filter by year -- enter a range of years. Papers published between these values (inclusive) will be returned.
 
-## Number of papers returned
+### Number of papers returned
 
-By default, 1,000 top results are returned. If a higher number is desired, change the constant `pagesize' on line 137 of `serve.py`. Note that higher numbers (e.g. 10,000) may slow down the application.
+By default, 1,000 top results are returned. This number is controlled by the `pagesize` constant on line 137 of `serve.py`. Note that setting it to a higher number (e.g., 10,000) may significantly slow down the application.
 
 ### TODO: 
 - [ ] ICLR 2024
