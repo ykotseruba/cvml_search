@@ -51,8 +51,6 @@ const Paper = props => {
         {utag_controls}
         {thumb_img}
         <div class='rel_abs'>{p.summary}</div>
-        <div class='rel_more'><a href={similar_url}>similar</a></div>
-        <div class='rel_inspect'><a href={inspect_url}>inspect</a></div>
     </div>
     )
 }
