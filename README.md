@@ -5,7 +5,7 @@ cvml-sanity is a paper search engine for major computer vision, machine learning
 The database includes **120,344 papers** from the following conferences:
 
 Computer vision: 
-- **CVPR** 2010 -- 2024
+- **CVPR** 2009 -- 2024
 - **ECCV** 2010 -- 2022
 - **ICCV** 2011 -- 2023
 - **ACCV** 2010 -- 2022
