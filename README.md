@@ -1,6 +1,6 @@
 # cvml-sanity
 
-cvml-sanity is a paper search engine for major computer vision, machine learning, and robotics venues. The code is repurposed from arxiv-sanity-lite (https://github.com/karpathy/arxiv-sanity-lite).
+cvml-sanity is a paper search engine for major computer vision, machine learning, robotics, and AI conferences. The code is repurposed from [arxiv-sanity-lite](https://github.com/karpathy/arxiv-sanity-lite).
 
 The database includes **120,344 papers** from the following conferences:
 
@@ -45,7 +45,7 @@ Download and install the xapian from https://xapian.org/download. The easiest op
 ### Setup
 Download paper database using the link below
 
-https://drive.google.com/file/d/1iXQzyQSq4jMpAOa2Usx5qdB-9NqPJWlm/view?usp=drive_link
+https://drive.google.com/file/d/1iXQzyQSq4jMpAOa2Usx5qdB-9NqPJWlm/view?usp=drive_link (updated Jun 30, 2024)
 
 Extract the archive into the `cvml_search` directory. The database folder is called `xapiandb`.
 
