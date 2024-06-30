@@ -27,7 +27,7 @@ AI:
 - **AAAI** 2010 -- 2024
 
 <p align="center">
-<img src="images/papers_per_year.png" alt="stats" align="middle" width="600"/>
+<img src="images/papers_per_year.png" alt="stats" align="middle" width="1000"/>
 </p>
 <br/><br/>
 
