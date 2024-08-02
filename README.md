@@ -1,8 +1,8 @@
 # cvml-sanity
 
-cvml-sanity is a paper search engine for major computer vision, machine learning, robotics, and AI conferences. The code is repurposed from [arxiv-sanity-lite](https://github.com/karpathy/arxiv-sanity-lite).
+cvml-sanity is a paper search engine for major computer vision, machine learning, robotics, and AI conferences and journals. The code is repurposed from [arxiv-sanity-lite](https://github.com/karpathy/arxiv-sanity-lite). 
 
-The database includes **122,954 papers** from the following conferences:
+The database includes **133,117 papers** from the following conferences (*excluding workshops*) and journals:
 
 Computer vision: 
 - **CVPR** 2009 -- 2024
@@ -17,11 +17,13 @@ Robotics:
 - **IROS** 2010 -- 2023
 - **CoRL** 2017 -- 2023
 - **RSS**  2005 -- 2023
+- **R-AL** 2016 -- 2024 (up to August)
 
 Machine learning:
 - **NeurIPS** 2010 -- 2023
 - **ICML** 2010 -- 2024
 - **ICLR** 2013 -- 2024
+- **JMLR** 2010 -- 2024 (up to August)
 
 AI:
 - **AAAI** 2010 -- 2024
@@ -30,6 +32,7 @@ AI:
 <img src="images/papers_per_year.png" alt="stats" align="middle" width="1000"/>
 </p>
 <br/><br/>
+
 
 #### Requirements
 
@@ -69,11 +72,15 @@ Search relies on the [Xapian engine](https://xapian.org/).
 
 -- Occurrences of terms close together, e.g. 'visual NEAR attention' will match only documents where these terms occur within a few words of one another.
 
+A complete list of supported queries can be found [in the official Xapian documentation](https://getting-started-with-xapian.readthedocs.io/en/latest/concepts/search/queries.html#).
+
 ## Filtering results
+
+Two additional text fields below the search results allow filtering the results.
 
 Filter by venue -- enter venue names separated by commas, e.g. cvpr,bmvc,iros. Not case sensitive.
 
-Filter by year -- enter a range of years. Papers published between these values (inclusive) will be returned.
+Filter by year -- enter a range of years. Papers published between these values (inclusive) will be returned (e.g. to find all papers from 2022, enter 2022-2022)
 
 ### Number of papers returned
 
@@ -81,7 +88,9 @@ By default, 1,000 top results are returned. This number is controlled by the `pa
 
 ### TODO: 
 - [ ] ICRA 2024
-- [ ] full-text search for ICRA
+- [ ] full-text search for ICRA/IROS/R-AL
+- [ ] R-AL
+- [ ] JMLR
 - [ ] ~~add IJCAI?~~
 - [ ] ~~add HCI?~~
 - [ ] workshops papers? 
