@@ -34,7 +34,7 @@ AI:
 <br/><br/>
 
 
-#### Requirements
+## Requirements
 
 Install via requirements:
 
@@ -42,10 +42,17 @@ Install via requirements:
 pip install -r requirements.txt
 ```
 
-Download and install the xapian from https://xapian.org/download. The easiest option on Ubuntu is to add the PPA from https://launchpad.net/~xapian/+archive/ubuntu/backports and then install via `sudo apt-get install python3-xapian`
+Download and install the xapian from https://xapian.org/download. The easiest option on Ubuntu is to add the PPA from https://launchpad.net/~xapian/+archive/ubuntu/backports:
+
+```
+sudo add-apt-repository ppa:xapian/backports
+sudo apt update
+sudo apt-get install python3-xapian`
+```
+
 (If using virtualenv, you might need to add the installed xapian to python search path. For example, creating a [`.venv/lib/python3.8/site-packages/xapian.pth` file](https://docs.python.org/3.11/library/site.html) containing directory where xapian is installed.)
 
-### Setup
+## Setup
 Download paper database using the link below
 
 https://drive.google.com/file/d/1iXQzyQSq4jMpAOa2Usx5qdB-9NqPJWlm/view?usp=drive_link (approx. 6GB, updated Jul 28, 2024)
@@ -60,11 +67,11 @@ To start the app locally, type in terminal:
 
 Then open http://127.0.0.1:5000/ in the browser.
 
-### Search
+## Search
 
 Search relies on the [Xapian engine](https://xapian.org/).
 
-## Queries
+### Queries
 
 -- Regular text queries, e.g. 'visual attention'
 
@@ -74,7 +81,7 @@ Search relies on the [Xapian engine](https://xapian.org/).
 
 A complete list of supported queries can be found [in the official Xapian documentation](https://getting-started-with-xapian.readthedocs.io/en/latest/concepts/search/queries.html#).
 
-## Filtering results
+### Filtering results
 
 Two additional text fields below the search results allow filtering the results.
 
